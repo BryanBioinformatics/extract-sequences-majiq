@@ -163,7 +163,7 @@ Make sure all required files are in the correct locations:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is shared for internal use with colleagues.
 
 ## 🙏 Acknowledgments
 
