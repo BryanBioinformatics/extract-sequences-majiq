@@ -123,16 +123,14 @@ def main():
         d_seq = get_context_sequence(fasta, row.chrom, row.donor, flank=250)
         a_seq = get_context_sequence(fasta, row.chrom, row.acceptor, flank=250)
         
-        # For negative strand, we need to reverse complement the sequences
-        # and swap donor/acceptor order to maintain biological orientation
+        # For negative strand, reverse complement to get transcript sequence
         if row.strand == '-':
             d_seq = reverse_complement(d_seq)
             a_seq = reverse_complement(a_seq)
-            # For negative strand, concatenate acceptor first, then donor
-            return (a_seq + d_seq).upper()
-        else:
-            # For positive strand, concatenate donor first, then acceptor
-            return (d_seq + a_seq).upper()
+        
+        # Always concatenate donor first, then acceptor (5' → 3' transcript orientation)
+        # This ensures consistent pattern for the model: [donor_context][acceptor_context]
+        return (d_seq + a_seq).upper()
 
     df['sequence'] = df.apply(build_seq, axis=1)
 

@@ -109,12 +109,17 @@ Final output contains:
 
 ## 🧬 Strand Orientation
 
-Sequences are extracted with proper biological orientation:
+Sequences are extracted with consistent biological orientation for model training:
 
 - **Positive strand (+):** `donor_sequence + acceptor_sequence`
-- **Negative strand (-):** `reverse_complement(acceptor_sequence + donor_sequence)`
+- **Negative strand (-):** `reverse_complement(donor_sequence) + reverse_complement(acceptor_sequence)`
 
-This ensures that all sequences represent the correct 5'→3' orientation for the gene.
+**Key Biological Logic:**
+- **Always donor → acceptor order** (5' → 3' transcript orientation)
+- **Reverse complement for negative strand** (to get transcript sequence)
+- **Consistent pattern** for the model: `[donor_context][acceptor_context]`
+
+This ensures the model learns the same splicing pattern regardless of gene strand.
 
 ## 🔍 Validation
 
