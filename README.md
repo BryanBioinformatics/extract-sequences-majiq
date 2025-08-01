@@ -104,9 +104,8 @@ The pipeline produces:
 
 Final output contains:
 - All original columns
-- `gene_symbol` - Extracted gene symbol
-- `strand` - Strand information (+ or -)
-- `sequence` - 1002bp sequence with proper strand orientation
+- `strand` - Strand information (+ or -) as 3rd column
+- `sequence` - 1002bp sequence with proper strand orientation as 4th column
 
 ## 🧬 Strand Orientation
 
