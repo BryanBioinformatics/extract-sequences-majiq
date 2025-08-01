@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Conda
+.conda/
+conda-meta/
+
+# Data files (too large for GitHub)
+*.csv
+*.fa
+*.fa.fai
+*.gtf
+*.gtf.gz
+references/
+
+# Output files
+*_with_strand.csv
+*_with_sequences.csv
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/ 

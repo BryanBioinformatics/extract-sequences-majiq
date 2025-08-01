@@ -1,0 +1,14 @@
+name: junction-annotation
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - pandas
+  - pyfaidx
+  - r-base=4.4
+  - r-data.table
+  - r-dplyr
+  - bioconductor-genomicranges
+  - bioconductor-rtracklayer 
