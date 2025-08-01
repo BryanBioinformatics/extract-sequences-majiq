@@ -136,12 +136,20 @@ def main():
 
     df['sequence'] = df.apply(build_seq, axis=1)
 
-    # clean up: drop temp cols, move 'sequence' right after 'strand'
+    # clean up: drop temp cols and reorganize columns
     df = df.drop(columns=['chrom','donor','acceptor'])
+    
+    # Remove gene_symbol column and reorganize columns
+    if 'gene_symbol' in df.columns:
+        df = df.drop(columns=['gene_symbol'])
+    
+    # Reorganize columns: keep original columns, then strand as 3rd, sequence as 4th
     cols = list(df.columns)
+    cols.remove('strand')
     cols.remove('sequence')
-    idx = cols.index('strand') + 1
-    new_order = cols[:idx] + ['sequence'] + cols[idx:]
+    
+    # Insert strand as 3rd column (after junction) and sequence as 4th
+    new_order = cols[:2] + ['strand'] + ['sequence'] + cols[2:]
     df = df[new_order]
 
     # write out
